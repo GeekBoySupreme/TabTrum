@@ -2,5 +2,12 @@
     "manifest_version": 2,
     "name": "Tab Marker",
     "version": "1.0.0",
-    "description": "Rearrange your tabs by URL"
+    "description": "Rearrange your tabs by URL",
+
+    "browser_action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "128": "wink.svg"
+        }
+    }
   }
