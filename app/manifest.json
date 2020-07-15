@@ -3,7 +3,7 @@
     "name": "Wink",
     "version": "1.0.0",
     "description": "Rearrange your tabs by URL",
-    "permissions": ["tabs"],
+    "permissions": ["tabs", "storage"],
 
     "browser_action": {
       "default_popup": "popup.html",
