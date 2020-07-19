@@ -7,6 +7,17 @@
 //     return 0;
 //   }
 
+//Comparer Function    
+function GetSortOrder(prop) {    
+  return function(a, b) {    
+      if (a[prop] > b[prop]) {    
+          return 1;    
+      } else if (a[prop] < b[prop]) {    
+          return -1;    
+      }    
+      return 0;    
+  }    
+} 
 
 
 // chrome.tabs.query({windowId: chrome.windows.WINDOW_ID_CURRENT}, (tabs) => {
@@ -181,6 +192,10 @@ function clickDelete(snapshot_delete) {
     if(items.data[index].id = index)
       items.data.splice(index,1)
 
+    
+    for(var i=0; i < items.data.length; i++)
+      items.data[i].id = "'"+ i +"'";
+    
     setData(items.data);
   });
 }
