@@ -57,17 +57,30 @@ loadData();
         if(tab_data) {
           chrome.tabs.query({windowId: chrome.windows.WINDOW_ID_CURRENT}, (tabs) => {
             var new_snapshot = {
-              'title' : 'Snapshot' + tab_data.length,
+              'title' : 'Snapshot ' + tab_data.length,
               'id' : 'id_' + tab_data.length,
               'tabs' : tabs
             }
   
             tab_data.push(new_snapshot);
             setData(tab_data); 
+            update_panel(new_snapshot);
+            //console.log(new_snapshot);
           });
         }
         else {
-          //throw new Error('Exception message');
+          var init_data = [];
+          chrome.tabs.query({windowId: chrome.windows.WINDOW_ID_CURRENT}, (tabs) => {
+            var new_snapshot = {
+              'title' : 'Snapshot ' + init_data.length,
+              'id' : 'id_' + init_data.length,
+              'tabs' : tabs
+            }
+
+            init_data.push(new_snapshot);
+            setData(init_data); 
+            update_panel(new_snapshot);
+          });
         }
       });
     }
@@ -82,10 +95,11 @@ loadData();
 
         init_data.push(new_snapshot);
         setData(init_data); 
+        update_panel(new_snapshot);
       });
     } 
 
-    loadData();
+    update_panel();
   };
 
 
@@ -105,7 +119,7 @@ loadData();
             render_home += '<div class="snapshot_tab" id="snapshot_tab_'+ render_data[i].id +'"> \
                             <h5 class="snapshot_title">'+ render_data[i].title +'</h5> \
                             <button class="snapshot_launch" id="snapshot_launch_'+ render_data[i].id +'">Launch Tabs</button> \
-                            </div>'
+                            </div>';
           }
 
           document.getElementById('snapshot_list').innerHTML = render_home;
@@ -149,7 +163,38 @@ loadData();
   }
 
   
-  // var button = document.getElementById('snapshot_launch_id_0');
-  // button.onclick = function() {
 
-  // }
+
+  function update_panel(data_snapshot) {
+      var render_update = '';
+      render_update = '<div class="snapshot_tab" id="snapshot_tab_'+ data_snapshot.id +'"> \
+                       <h5 class="snapshot_title">'+ data_snapshot.title +'</h5> \
+                       <button class="snapshot_launch" id="snapshot_launch_'+ data_snapshot.id +'">Launch Tabs</button> \
+                       </div>';
+      
+      document.getElementById('snapshot_list').innerHTML += render_update;
+  }
+
+
+
+setTimeout(function() {
+  var button_launch = document.getElementById('snapshot_launch_id_0');
+  button_launch.onclick = function() {
+    chrome.storage.local.get(['data'], function(items) {
+      var index = 0;
+  
+      // for(var i=0; i < items.data.length; i++) {
+      //   button_launch[i].onclick = function() {
+      //     index = i;
+      //   }
+      // }
+      tabs_to_launch = items.data[index].tabs;
+      for(var i=0; i < tabs_to_launch.length; i++) {
+        var launch_url = tabs_to_launch[i].url;
+        chrome.tabs.create({ url: launch_url });
+      }
+  
+    });
+  }
+}, 100);
+ 
