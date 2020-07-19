@@ -107,8 +107,6 @@ loadData();
 
   function loadData() {
     var render_home = '';
-    // var render_data = getData();
-    // console.log(render_data);
 
     try {
       chrome.storage.local.get(['data'], function(items) {
@@ -118,6 +116,7 @@ loadData();
           for(var i=0; i < render_data.length; i++) {
             render_home += '<div class="snapshot_tab" id="snapshot_tab_'+ render_data[i].id +'"> \
                             <h5 class="snapshot_title">'+ render_data[i].title +'</h5> \
+                            <button class="snapshot_delete" id="snapshot_delete_'+render_data[i].id +'">x</button> \
                             <button class="snapshot_launch" id="snapshot_launch_'+ render_data[i].id +'">Launch Tabs</button> \
                             </div>';
           }
@@ -140,22 +139,6 @@ loadData();
   }
 
 
-  // function getData() {
-  //   var stored_data = '';
-
-  //   try {
-  //     chrome.storage.local.get(['data'], function(items) {
-  //       stored_data = items.data;
-  //       console.log(items.data);
-  //     });
-  //   }
-  //   catch(e) {
-  //     console.log("Error : "+e);
-  //   }
-
-  //   return stored_data;
-  // }
-
   function setData(data_update) {
     chrome.storage.local.set({'data' : data_update}, function() {
       console.log('Settings saved');
@@ -169,6 +152,7 @@ loadData();
       var render_update = '';
       render_update = '<div class="snapshot_tab" id="snapshot_tab_'+ data_snapshot.id +'"> \
                        <h5 class="snapshot_title">'+ data_snapshot.title +'</h5> \
+                       <button class="snapshot_delete" id="snapshot_delete_'+ data_snapshot.id +'">x</button> \
                        <button class="snapshot_launch" id="snapshot_launch_'+ data_snapshot.id +'">Launch Tabs</button> \
                        </div>';
       
@@ -177,17 +161,10 @@ loadData();
 
 
 
-setTimeout(function() {
-  var button_launch = document.getElementById('snapshot_launch_id_0');
-  button_launch.onclick = function() {
+function clickLaunch(snapshot_index) {
     chrome.storage.local.get(['data'], function(items) {
-      var index = 0;
-  
-      // for(var i=0; i < items.data.length; i++) {
-      //   button_launch[i].onclick = function() {
-      //     index = i;
-      //   }
-      // }
+      var index = snapshot_index;
+
       tabs_to_launch = items.data[index].tabs;
       for(var i=0; i < tabs_to_launch.length; i++) {
         var launch_url = tabs_to_launch[i].url;
@@ -195,6 +172,29 @@ setTimeout(function() {
       }
   
     });
-  }
-}, 100);
+}
+
+function clickDelete(snapshot_delete) {
+  chrome.storage.local.get(['data'], function(items) {
+    var index = snapshot_delete;
+
+    if(items.data[index].id = index)
+      items.data.splice(index,1)
+
+    setData(items.data);
+  });
+}
+
+
+document.addEventListener('click', function (event) {
+
+  var snapshot_index = event.target.id.split('_')[3];
+  var action = event.target.id.split('_')[1];
+
+  if(action == 'delete')
+    clickDelete(snapshot_index);
+  else
+    clickLaunch(snapshot_index);
+
+}, false);
  
