@@ -1,12 +1,3 @@
-// function byAlphabeticalURLOrder(tab1, tab2) {
-//     if (tab1.url < tab2.url) {
-//       return -1;
-//     } else if (tab1.url > tab2.url) {
-//       return 1;
-//     }
-//     return 0;
-//   }
-
 //Comparer Function    
 function GetSortOrder(prop) {    
   return function(a, b) {    
@@ -19,42 +10,6 @@ function GetSortOrder(prop) {
   }    
 } 
 
-
-// chrome.tabs.query({windowId: chrome.windows.WINDOW_ID_CURRENT}, (tabs) => {
-
-//     tabs.sort(byAlphabeticalURLOrder);
-//     // chrome.tabs.move(tabs[0].id, {index: 0});
-
-//     // for (let i = 0; i < tabs.length; i++) {
-//     //   chrome.tabs.move(tabs[i].id, {index: i});
-//     // }
-
-//     //var newURL = "http://stackoverflow.com/";
-//     //chrome.tabs.create({ url: newURL });
-
-//     chrome.storage.local.set({'data' : [{'foo': 'hello', 'bar': 'hi'}, {'foo': 'it', 'bar': 'works'}]}, function() {
-//         console.log('Settings saved');
-//       });
-
-//      // Read it using the storage API
-//         chrome.storage.local.get(['data'], function(items) {
-//             try {
-//                 justdata = {'foo': 'it', 'bar': 'blah'};
-//                 items.data.push(justdata);
-//                 //document.write(items.data[2].bar);
-//             }
-//             catch(e) {
-//                 document.write(e);
-//             }
-//           });    
-     
-//     // document.write(`<h3>The tabs you're on are:</h3>`);
-//     // document.write('<ul>');
-//     // for (let i = 0; i < tabs.length; i++) {
-//     //   document.write(`<li>${tabs[i].title}</li>`);
-//     // }
-//     // document.write('</ul>');
-//   });
 loadData();
 
 
@@ -70,13 +25,12 @@ loadData();
             var new_snapshot = {
               'title' : 'Snapshot ' + tab_data.length,
               'id' : 'id_' + tab_data.length,
-              'tabs' : tabs
+              'tablist' : tabs
             }
   
             tab_data.push(new_snapshot);
             setData(tab_data); 
             update_panel(new_snapshot);
-            //console.log(new_snapshot);
           });
         }
         else {
@@ -85,7 +39,7 @@ loadData();
             var new_snapshot = {
               'title' : 'Snapshot ' + init_data.length,
               'id' : 'id_' + init_data.length,
-              'tabs' : tabs
+              'tablist' : tabs
             }
 
             init_data.push(new_snapshot);
@@ -101,7 +55,7 @@ loadData();
         var new_snapshot = {
           'title' : 'Snapshot ' + init_data.length,
           'id' : 'id_' + init_data.length,
-          'tabs' : tabs
+          'tablist' : tabs
         }
 
         init_data.push(new_snapshot);
@@ -109,8 +63,6 @@ loadData();
         update_panel(new_snapshot);
       });
     } 
-
-    update_panel();
   };
 
 
@@ -175,16 +127,32 @@ loadData();
 
 
 function clickLaunch(snapshot_index) {
-    chrome.storage.local.get(['data'], function(items) {
-      var index = snapshot_index;
-
-      tabs_to_launch = items.data[index].tabs;
-      for(var i=0; i < tabs_to_launch.length; i++) {
-        var launch_url = tabs_to_launch[i].url;
-        chrome.tabs.create({ url: launch_url });
-      }
+  var index = snapshot_index;
   
-    });
+    try {
+      chrome.storage.local.get(['data'], function(items) {
+        document.write(items.data[index]);
+        tabs_to_launch = items.data[index].tablist;
+  
+        for(var i=0; i < tabs_to_launch.length; i++) {
+          var launch_url = tabs_to_launch[i].url;
+          chrome.tabs.create({ url: launch_url });
+        }
+    
+      });
+    }
+    catch(e) {
+      chrome.storage.local.get(['data'], function(items) {
+        tabs_to_launch = items.data[index].tablist;
+        console.log(items.data[index].tablist)
+  
+        for(var i=0; i < tabs_to_launch.length; i++) {
+          var launch_url = tabs_to_launch[i].url;
+          chrome.tabs.create({ url: launch_url });
+        }
+    
+      });
+    }    
 }
 
 function clickDelete(snapshot_delete) {
@@ -193,7 +161,6 @@ function clickDelete(snapshot_delete) {
 
     if(items.data[index].id = index)
       items.data.splice(index,1)
-
     
     for(var i=0; i < items.data.length; i++)
       items.data[i].id = "id_" + i;
@@ -204,13 +171,19 @@ function clickDelete(snapshot_delete) {
 }
 
 
+
+
+
+
 document.addEventListener('click', function (event) {
+
+  if(event.target.id == 'snapshot_button')return;
 
   var snapshot_index = event.target.id.split('_')[3];
   var action = event.target.id.split('_')[1];
 
   if(action == 'delete')
-    clickDelete(snapshot_index, event.target);
+    clickDelete(snapshot_index);
   else
     clickLaunch(snapshot_index);
 
