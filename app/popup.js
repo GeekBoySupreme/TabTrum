@@ -45,12 +45,13 @@
 //     // document.write('</ul>');
 //   });
 
-loadData();
-
   var button = document.getElementById('snapshot_button');
   button.onclick = function() {
-      try {
-        var tab_data = getData();
+     
+    try {
+        chrome.storage.sync.get(['data'], function(items) {
+        var tab_data = items.data;
+        
         if(tab_data) {
           chrome.tabs.query({windowId: chrome.windows.WINDOW_ID_CURRENT}, (tabs) => {
             var new_snapshot = {
@@ -64,49 +65,55 @@ loadData();
           });
         }
         else {
-          throw new Error('Exception message');
+          //throw new Error('Exception message');
         }
-      }
-      catch(e) {
-        var init_data = [];
-        chrome.tabs.query({windowId: chrome.windows.WINDOW_ID_CURRENT}, (tabs) => {
-          var new_snapshot = {
-            'title' : 'Snapshot ' + init_data.length,
-            'id' : 'id_' + init_data.length,
-            'tabs' : tabs
-          }
+      });
+    }
+    catch(e) {
+      var init_data = [];
+      chrome.tabs.query({windowId: chrome.windows.WINDOW_ID_CURRENT}, (tabs) => {
+        var new_snapshot = {
+          'title' : 'Snapshot ' + init_data.length,
+          'id' : 'id_' + init_data.length,
+          'tabs' : tabs
+        }
 
-          init_data.push(new_snapshot);
-          setData(init_data); 
-        });
-      }
+        init_data.push(new_snapshot);
+        setData(init_data); 
+      });
+    } 
 
-      loadData();
+    loadData();
   };
 
 
 
 
   function loadData() {
-
-    console.log("Hello");
     var render_home = '';
     // var render_data = getData();
     // console.log(render_data);
 
     try {
       chrome.storage.sync.get(['data'], function(items) {
-        render_data = items.data;
-        
-        for(var i=0; i < render_data.length; i++) {
-          render_home += '<div class="snapshot_tab" id="snapshot_tab_'+ render_data[i].id +'"> \
-                          <h5 class="snapshot_title">'+ render_data[i].title +'</h5> \
-                          <button class="snapshot_launch" id="snapshot_launch_'+ render_data[i].id +'">Launch Tabs</button> \
-                          </div>'
-        }
+        var render_data = items.data;
 
-        console.log(render_home);
-        document.getElementById('snapshot_list').innerHTML = render_home;
+        if(render_data) {
+          for(var i=0; i < render_data.length; i++) {
+            render_home += '<div class="snapshot_tab" id="snapshot_tab_'+ render_data[i].id +'"> \
+                            <h5 class="snapshot_title">'+ render_data[i].title +'</h5> \
+                            <button class="snapshot_launch" id="snapshot_launch_'+ render_data[i].id +'">Launch Tabs</button> \
+                            </div>'
+          }
+  
+          console.log(render_home);
+          document.getElementById('snapshot_list').innerHTML = render_home;
+        }
+        else {
+          var data_initialize = [];
+          setData(data_initialize);
+        }
+        
       });
     }
     catch(e) {
@@ -118,21 +125,21 @@ loadData();
   }
 
 
-  function getData() {
-    var stored_data = '';
+  // function getData() {
+  //   var stored_data = '';
 
-    try {
-      chrome.storage.sync.get(['data'], function(items) {
-        stored_data = items.data;
-        console.log(items.data);
-      });
-    }
-    catch(e) {
-      console.log("Error : "+e);
-    }
+  //   try {
+  //     chrome.storage.sync.get(['data'], function(items) {
+  //       stored_data = items.data;
+  //       console.log(items.data);
+  //     });
+  //   }
+  //   catch(e) {
+  //     console.log("Error : "+e);
+  //   }
 
-    return stored_data;
-  }
+  //   return stored_data;
+  // }
 
   function setData(data_update) {
     chrome.storage.sync.set({'data' : data_update}, function() {
