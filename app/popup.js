@@ -21,12 +21,12 @@
 //     //var newURL = "http://stackoverflow.com/";
 //     //chrome.tabs.create({ url: newURL });
 
-//     chrome.storage.sync.set({'data' : [{'foo': 'hello', 'bar': 'hi'}, {'foo': 'it', 'bar': 'works'}]}, function() {
+//     chrome.storage.local.set({'data' : [{'foo': 'hello', 'bar': 'hi'}, {'foo': 'it', 'bar': 'works'}]}, function() {
 //         console.log('Settings saved');
 //       });
 
 //      // Read it using the storage API
-//         chrome.storage.sync.get(['data'], function(items) {
+//         chrome.storage.local.get(['data'], function(items) {
 //             try {
 //                 justdata = {'foo': 'it', 'bar': 'blah'};
 //                 items.data.push(justdata);
@@ -44,12 +44,14 @@
 //     // }
 //     // document.write('</ul>');
 //   });
+loadData();
+
 
   var button = document.getElementById('snapshot_button');
   button.onclick = function() {
      
     try {
-        chrome.storage.sync.get(['data'], function(items) {
+        chrome.storage.local.get(['data'], function(items) {
         var tab_data = items.data;
         
         if(tab_data) {
@@ -95,7 +97,7 @@
     // console.log(render_data);
 
     try {
-      chrome.storage.sync.get(['data'], function(items) {
+      chrome.storage.local.get(['data'], function(items) {
         var render_data = items.data;
 
         if(render_data) {
@@ -105,8 +107,7 @@
                             <button class="snapshot_launch" id="snapshot_launch_'+ render_data[i].id +'">Launch Tabs</button> \
                             </div>'
           }
-  
-          console.log(render_home);
+
           document.getElementById('snapshot_list').innerHTML = render_home;
         }
         else {
@@ -129,7 +130,7 @@
   //   var stored_data = '';
 
   //   try {
-  //     chrome.storage.sync.get(['data'], function(items) {
+  //     chrome.storage.local.get(['data'], function(items) {
   //       stored_data = items.data;
   //       console.log(items.data);
   //     });
@@ -142,7 +143,13 @@
   // }
 
   function setData(data_update) {
-    chrome.storage.sync.set({'data' : data_update}, function() {
+    chrome.storage.local.set({'data' : data_update}, function() {
       console.log('Settings saved');
     });
   }
+
+  
+  // var button = document.getElementById('snapshot_launch_id_0');
+  // button.onclick = function() {
+
+  // }
