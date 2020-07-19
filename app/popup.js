@@ -151,6 +151,8 @@ loadData();
 
 
   function setData(data_update) {
+
+    console.log(data_update);
     chrome.storage.local.set({'data' : data_update}, function() {
       console.log('Settings saved');
     });
@@ -194,9 +196,10 @@ function clickDelete(snapshot_delete) {
 
     
     for(var i=0; i < items.data.length; i++)
-      items.data[i].id = "'"+ i +"'";
+      items.data[i].id = "id_" + i;
     
     setData(items.data);
+    loadData();
   });
 }
 
@@ -207,7 +210,7 @@ document.addEventListener('click', function (event) {
   var action = event.target.id.split('_')[1];
 
   if(action == 'delete')
-    clickDelete(snapshot_index);
+    clickDelete(snapshot_index, event.target);
   else
     clickLaunch(snapshot_index);
 
