@@ -10,7 +10,21 @@ function GetSortOrder(prop) {
   }    
 } 
 
-loadData();
+
+document.addEventListener('click', function (event) {
+
+  if(event.target.id == 'snapshot_button')return;
+
+  var snapshot_index = event.target.id.split('_')[3];
+  var action = event.target.id.split('_')[1];
+
+  if(action == 'delete')
+    clickDelete(snapshot_index);
+  else
+    clickLaunch(snapshot_index);
+
+}, false);
+
 
 
   var button = document.getElementById('snapshot_button');
@@ -76,7 +90,7 @@ loadData();
         var render_data = items.data;
 
         if(render_data) {
-          for(var i=0; i < render_data.length; i++) {
+          for(var i = render_data.length-1; i >= 0; i--) {
             render_home += '<div class="snapshot_tab" id="snapshot_tab_'+ render_data[i].id +'"> \
                             <h5 class="snapshot_title">'+ render_data[i].title +'</h5> \
                             <button class="snapshot_delete" id="snapshot_delete_'+render_data[i].id +'">x</button> \
@@ -171,21 +185,8 @@ function clickDelete(snapshot_delete) {
 }
 
 
+loadData();
 
 
 
-
-document.addEventListener('click', function (event) {
-
-  if(event.target.id == 'snapshot_button')return;
-
-  var snapshot_index = event.target.id.split('_')[3];
-  var action = event.target.id.split('_')[1];
-
-  if(action == 'delete')
-    clickDelete(snapshot_index);
-  else
-    clickLaunch(snapshot_index);
-
-}, false);
  

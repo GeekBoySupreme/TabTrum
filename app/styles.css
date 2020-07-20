@@ -1,4 +1,49 @@
 body {
-    width: 300px;
-    height: 250px;
+    width: 250px;
+    height: 300px;
+    font-family: 'Nunito', sans-serif;
+
+
+    --color-text: #1c1b1b;
+	--color-bg: #efe6e1;
+	--color-link: #b07656;
+	--color-link-hover: #000;
+	--color-deco: #d6ac96;
+    --color-highlight: #fccd77;
+    
+
+    background: rgb(26, 26, 26);
+    border-radius: 5px;
 }
+
+.snapshot_list {
+    height: 250px;
+    width: calc(100% + 5px);
+    overflow-y: scroll;
+    background: rgb(60,60,60);
+    padding: 10px 6px 20px 6px;
+    position: relative;
+    left: -10px;
+}
+
+.footer {
+    position: relative;
+    top: -50px;
+}
+
+
+
+  /*------- Scrollbar --------------*/
+  .snapshot_list::-webkit-scrollbar {
+    width: 0.3rem;
+  }
+  
+  .snapshot_list::-webkit-scrollbar-track {
+    background: rgba(49, 49, 49, 0.075);
+  }
+  
+  .snapshot_list::-webkit-scrollbar-thumb {
+    background: #3b6acf;
+    width: 0.3rem;
+    border-radius: 10px;
+  }
