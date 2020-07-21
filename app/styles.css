@@ -36,6 +36,10 @@ button:hover, button:active {
     padding: 10px 15px 20px 15px;
     position: relative;
     left: -10px;
+
+
+    display: flex;
+    flex-direction: column;
 }
 
 .footer {
@@ -88,4 +92,23 @@ button:hover, button:active {
 
   .snapshot_button:hover {
     background: var(--color-button-highlight);
+  }
+
+  .placeholder_text {
+    color: var(--color-text-light);
+  }
+
+  .img-fluid {
+    width: 100px;
+    margin: 10px auto;
+  }
+
+  #image_holder {
+    margin-top: 40px;
+  }
+
+  .placeholder_text {
+    text-align: center;
+    font-weight: 600;
+
   }

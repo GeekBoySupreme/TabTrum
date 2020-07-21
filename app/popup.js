@@ -91,6 +91,10 @@ document.addEventListener('click', function (event) {
       chrome.storage.local.get(['data'], function(items) {
         var render_data = items.data;
 
+        if(render_data.length > 0) {
+          render_home = '';
+        }
+
         if(render_data) {
           for(var i = render_data.length-1; i >= 0; i--) {
             render_home += '<div class="snapshot_tab snapshot_tab_style_'+ render_data[i].id +'" id="snapshot_tab_'+ render_data[i].id +'"> \
@@ -100,7 +104,17 @@ document.addEventListener('click', function (event) {
                             </div>';
           }
 
-          document.getElementById('snapshot_list').innerHTML = render_home;
+          if(render_data.length == 0) {
+            render_home = '<img id="image_holder" class="img-fluid" src="./images/miroodle.png"/> \
+            <span class="placeholder_text">Hey there,<br/> You have not snapped Tabs yet!</span>';
+
+            document.getElementById('snapshot_list').innerHTML = render_home;
+          }
+          else {
+            document.getElementById('snapshot_list').innerHTML = render_home;
+          }
+
+          
         }
         else {
           var data_initialize = [];
