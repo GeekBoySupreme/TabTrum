@@ -151,7 +151,14 @@ document.addEventListener('click', function (event) {
                        <button class="snapshot_launch" id="snapshot_launch_'+ data_snapshot.id +'">Launch Tabs</button> \
                        </div>';
       
-      document.getElementById('snapshot_list').innerHTML += render_update;
+      chrome.storage.local.get(['data'], function(items) {
+        var render_data = items.data;
+        if(render_data.length > 1)
+          document.getElementById('snapshot_list').innerHTML += render_update;
+        else
+          document.getElementById('snapshot_list').innerHTML = render_update;
+      });
+
   }
 
 
