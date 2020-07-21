@@ -1,6 +1,6 @@
 {
     "manifest_version": 2,
-    "name": "SnapTab",
+    "name": "TabSnap",
     "version": "1.0.0",
     "description": "Save & Launch your Browser Tab Combinations in a blink.",
     "permissions": ["tabs", "storage"],

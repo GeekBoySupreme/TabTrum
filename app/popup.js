@@ -20,8 +20,10 @@ document.addEventListener('click', function (event) {
 
   if(action == 'delete')
     clickDelete(snapshot_index);
-  else
+  else if(action == 'launch')
     clickLaunch(snapshot_index);
+  else
+    return;
 
 }, false);
 
