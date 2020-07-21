@@ -28,7 +28,12 @@ body {
 
 .footer {
     position: relative;
-    top: -50px;
+    width: 300px;
+    top: -10px;
+    right: -10px;
+    left: -10px;
+    z-index: 10;
+    background: linear-gradient(to top, #070714, transparent);
 }
 
 

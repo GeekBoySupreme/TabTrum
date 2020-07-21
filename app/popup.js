@@ -91,8 +91,8 @@ document.addEventListener('click', function (event) {
 
         if(render_data) {
           for(var i = render_data.length-1; i >= 0; i--) {
-            render_home += '<div class="snapshot_tab" id="snapshot_tab_'+ render_data[i].id +'"> \
-                            <h5 class="snapshot_title">'+ render_data[i].title +'</h5> \
+            render_home += '<div class="snapshot_tab snapshot_tab_style_'+ render_data[i].id +'" id="snapshot_tab_'+ render_data[i].id +'"> \
+                            <h5 class="snapshot_title"><span class="snapshot_marker snapshot_marker_'+ render_data[i].id +'"></span>'+ render_data[i].title +'</h5> \
                             <button class="snapshot_delete" id="snapshot_delete_'+render_data[i].id +'">x</button> \
                             <button class="snapshot_launch" id="snapshot_launch_'+ render_data[i].id +'">Launch Tabs</button> \
                             </div>';
