@@ -96,7 +96,7 @@ document.addEventListener('click', function (event) {
         }
 
         if(render_data) {
-          for(var i = render_data.length-1; i >= 0; i--) {
+          for(var i = 0; i < render_data.length; i++) {
             render_home += '<div class="snapshot_tab snapshot_tab_style_'+ render_data[i].id +'" id="snapshot_tab_'+ render_data[i].id +'"> \
                             <div class="snapshot_tab_container">\
                             <h5 class="snapshot_title"><span class="snapshot_marker snapshot_marker_'+ render_data[i].id +'"></span>'+ render_data[i].title +'</h5> \
@@ -134,8 +134,6 @@ document.addEventListener('click', function (event) {
 
 
   function setData(data_update) {
-
-    console.log(data_update);
     chrome.storage.local.set({'data' : data_update}, function() {
       console.log('Settings saved');
     });
@@ -144,12 +142,13 @@ document.addEventListener('click', function (event) {
   
 
 
+
   function update_panel(data_snapshot) {
       var render_update = '';
-      render_update = '<div class="snapshot_tab" id="snapshot_tab_'+ data_snapshot.id +'"> \
+      render_update = '<div class="snapshot_tab snapshot_tab_swoop_in" id="snapshot_tab_update_' + tracker +'"> \
                        <div class="snapshot_tab_container">\
                        <h5 class="snapshot_title">'+ data_snapshot.title +'</h5> \
-                       <button class="snapshot_delete" id="snapshot_delete_'+ data_snapshot.id +'">x</button> \
+                       <button class="snapshot_delete" id="snapshot_delete_'+ data_snapshot.id +'">+</button> \
                        <button class="snapshot_launch" id="snapshot_launch_'+ data_snapshot.id +'">Launch Tabs</button> \
                        </div></div>';
       
@@ -159,6 +158,12 @@ document.addEventListener('click', function (event) {
           document.getElementById('snapshot_list').innerHTML += render_update;
         else
           document.getElementById('snapshot_list').innerHTML = render_update;
+
+        setTimeout(function() {
+            console.log("Here");
+            document.getElementById('snapshot_tab_update_' + tracker).className = document.getElementById('snapshot_tab_update_' + tracker).className.replace(' snapshot_tab_swoop_in', '');
+            tracker++;
+          }, 310);        
       });
 
   }
@@ -183,8 +188,7 @@ function clickLaunch(snapshot_index) {
     catch(e) {
       chrome.storage.local.get(['data'], function(items) {
         tabs_to_launch = items.data[index].tablist;
-        console.log(items.data[index].tablist)
-  
+        
         for(var i=0; i < tabs_to_launch.length; i++) {
           var launch_url = tabs_to_launch[i].url;
           chrome.tabs.create({ url: launch_url });
@@ -211,6 +215,7 @@ function clickDelete(snapshot_delete) {
 
 
 loadData();
+var tracker = 0;
 
 
 

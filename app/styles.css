@@ -137,6 +137,9 @@ button:hover, button:active {
  .placeholder_text, .img-fluid {
     animation : whooshIn 0.3s;
  }
+ .snapshot_tab_swoop_in {
+    animation : slideIn 0.3s;
+ }
 
   .snapshot_tab {
     padding: 0px 10px;
@@ -159,6 +162,7 @@ button:hover, button:active {
     font-size: 13px;
     font-family: 'Nunito', sans-serif;
     font-weight: 700;
+    letter-spacing: 0.3px;
   }
   .snapshot_launch, .snapshot_delete {
     position: relative;
@@ -168,8 +172,10 @@ button:hover, button:active {
     font-size: 12px;
     font-family: 'Nunito', sans-serif;
     font-weight: 600;
+    letter-spacing: 0.2px;
     padding: 3px 10px;
     border-radius: 2px;
+    transition: all 0.3s ease;
   }
   .snapshot_delete {
     width: 26px;
@@ -179,14 +185,16 @@ button:hover, button:active {
     position: relative;
     left: 10px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
     font-weight: 600;
     font-size: 15px;
     color: var(--color-text);
     background: var(--color-bg);
+
+    transition: all 0.3s ease;
+  }
+
+  .snapshot_delete:hover {
+    background: var(--color-text-dark);
   }
 
 
@@ -238,5 +246,17 @@ button:hover, button:active {
     to {
       opacity: 1;
       top: 0px;
+    }
+  }
+
+  @keyframes slideIn {
+    from {
+      position: relative;
+      opacity: 0;
+      left: -3px;
+    }
+    to {
+      opacity: 1;
+      left: 0px;
     }
   }
