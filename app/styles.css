@@ -171,7 +171,23 @@ button:hover, button:active {
     padding: 3px 10px;
     border-radius: 2px;
   }
+  .snapshot_delete {
+    width: 26px;
+    height: 26px;
+    border-radius: 50px;
+    transform: rotate(45deg);
+    position: relative;
+    left: 10px;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--color-text);
+    background: var(--color-bg);
+  }
 
 
 
