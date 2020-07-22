@@ -98,10 +98,11 @@ document.addEventListener('click', function (event) {
         if(render_data) {
           for(var i = render_data.length-1; i >= 0; i--) {
             render_home += '<div class="snapshot_tab snapshot_tab_style_'+ render_data[i].id +'" id="snapshot_tab_'+ render_data[i].id +'"> \
+                            <div class="snapshot_tab_container">\
                             <h5 class="snapshot_title"><span class="snapshot_marker snapshot_marker_'+ render_data[i].id +'"></span>'+ render_data[i].title +'</h5> \
-                            <button class="snapshot_delete" id="snapshot_delete_'+render_data[i].id +'">x</button> \
+                            <button class="snapshot_delete" id="snapshot_delete_'+render_data[i].id +'">+</button> \
                             <button class="snapshot_launch" id="snapshot_launch_'+ render_data[i].id +'">Launch Tabs</button> \
-                            </div>';
+                            </div></div>';
           }
 
           if(render_data.length == 0) {
@@ -146,10 +147,11 @@ document.addEventListener('click', function (event) {
   function update_panel(data_snapshot) {
       var render_update = '';
       render_update = '<div class="snapshot_tab" id="snapshot_tab_'+ data_snapshot.id +'"> \
+                       <div class="snapshot_tab_container">\
                        <h5 class="snapshot_title">'+ data_snapshot.title +'</h5> \
                        <button class="snapshot_delete" id="snapshot_delete_'+ data_snapshot.id +'">x</button> \
                        <button class="snapshot_launch" id="snapshot_launch_'+ data_snapshot.id +'">Launch Tabs</button> \
-                       </div>';
+                       </div></div>';
       
       chrome.storage.local.get(['data'], function(items) {
         var render_data = items.data;

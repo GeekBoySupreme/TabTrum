@@ -13,7 +13,12 @@ body {
     --color-snap-button: #ffe594;
     --color-button-highlight: #ffc68a;
     --color-highlight-bg : rgb(255, 109, 121);
+    --color-highlight-scroll : rgb(0,101,202);
     
+    --color-one : rgb(255, 96, 96);
+    --color-two : #ffdca7;
+    --color-three : rgb(81, 136, 255);
+    --color-four : rgb(144, 255, 229);
 
     background: var(--color-bg);
     color: var(--color-text);
@@ -72,7 +77,7 @@ button:hover, button:active {
   }
   
   .snapshot_list::-webkit-scrollbar-thumb {
-    background: var(--color-snap-button);
+    background: var(--color-highlight-scroll);
     width: 0.3rem;
     border-radius: 10px;
   }
@@ -85,13 +90,15 @@ button:hover, button:active {
     padding: 10px 60px;
     font-size: 12px;
     font-family: 'Nunito', sans-serif;
-    font-weight: 800;
-    letter-spacing: 0.3px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
 
     position: relative;
     top: -8px;
     margin: 0 auto;
     border-radius: 50px;
+
+    transition : all 0.2s ease;
   }
 
   .snapshot_button:hover {
@@ -124,4 +131,96 @@ button:hover, button:active {
     font-weight: 600;
     padding: 3px 5px;
     margin: 1px auto;
+  }
+
+
+ .placeholder_text, .img-fluid {
+    animation : whooshIn 0.3s;
+ }
+
+  .snapshot_tab {
+    padding: 0px 10px;
+    margin: 6px 0px;
+    display: table-cell; 
+    vertical-align: middle; 
+    height: 60px;
+
+    /* animation : whooshIn 0.3s; */
+  }
+  .snapshot_tab .snapshot_delete {
+    float: right;
+    
+  }
+  .snapshot_tab .snapshot_tab_container {
+    position: relative;
+    top: -20px;
+  }
+  .snapshot_title {
+    font-size: 13px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+  }
+  .snapshot_launch, .snapshot_delete {
+    position: relative;
+    top: -9px;
+  }
+  .snapshot_launch {
+    font-size: 12px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 2px;
+  }
+
+
+
+
+  .snapshot_tab:nth-child(4n+1) {
+    border-left: 2px solid var(--color-one);
+  }
+  .snapshot_tab:nth-child(4n+1) .snapshot_launch {
+    background: var(--color-one);
+    color: var(--color-text);
+  }
+
+
+  .snapshot_tab:nth-child(4n+2) {
+    border-left: 2px solid var(--color-two);
+  }
+  .snapshot_tab:nth-child(4n+2) .snapshot_launch {
+    background: var(--color-two);
+    color: var(--color-text-dark);
+  }
+
+
+  .snapshot_tab:nth-child(4n+3) {
+    border-left: 2px solid var(--color-three);
+  }
+  .snapshot_tab:nth-child(4n+3) .snapshot_launch {
+    background: var(--color-three);
+    color: var(--color-text);
+  }
+
+
+  .snapshot_tab:nth-child(4n+4) {
+    border-left: 2px solid var(--color-four);
+  }
+  .snapshot_tab:nth-child(4n+4) .snapshot_launch {
+    background: var(--color-four);
+    color: var(--color-text-dark);
+  }
+
+
+
+
+  @keyframes whooshIn {
+    from {
+      position: relative;
+      opacity: 0;
+      top: 3px;
+    }
+    to {
+      opacity: 1;
+      top: 0px;
+    }
   }
