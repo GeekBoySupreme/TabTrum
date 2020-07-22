@@ -106,7 +106,7 @@ document.addEventListener('click', function (event) {
 
           if(render_data.length == 0) {
             render_home = '<img id="image_holder" class="img-fluid" src="./images/miroodle.png"/> \
-            <span class="placeholder_text">Hey there,<br/> You have not snapped Tabs yet!</span>';
+            <span class="placeholder_text">Hey there,<br/> You have not Snapped Tabs yet!</span>';
 
             document.getElementById('snapshot_list').innerHTML = render_home;
           }

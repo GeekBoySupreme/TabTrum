@@ -1,6 +1,6 @@
 {
     "manifest_version": 2,
-    "name": "TabSnap",
+    "name": "TabTrum",
     "version": "1.0.0",
     "description": "Save & Launch your Browser Tab Combinations in a blink.",
     "permissions": ["tabs", "storage",  "<all_urls>"],

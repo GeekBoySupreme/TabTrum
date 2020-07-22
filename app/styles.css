@@ -5,12 +5,14 @@ body {
 
 
     --color-text: #ffffff;
+    --color-text-dark: rgb(94, 93, 93);
     --color-text-light: #a8a8a8;
     --color-bg: rgb(41, 41, 41);
     --color-card: rgb(51, 51, 51);
     --color-footer: rgb(50, 50, 50);
-    --color-snap-button: rgb(0, 101, 202);
-    --color-button-highlight: rgb(147, 31, 255);
+    --color-snap-button: #ffe594;
+    --color-button-highlight: #ffc68a;
+    --color-highlight-bg : rgb(255, 109, 121);
     
 
     background: var(--color-bg);
@@ -19,6 +21,7 @@ body {
 
 button {
   border: none;
+  outline: none;
 }
 button:hover, button:active {
   outline: none;
@@ -51,7 +54,7 @@ button:hover, button:active {
     z-index: 10;
     height: 30px;
     padding: 10px;
-    border-radius: 20px 20px 0px 0px;
+    border-radius: 25px 25px 0px 0px;
     text-align: center;
 
     background: linear-gradient(to top, var(--color-card), transparent);
@@ -77,15 +80,16 @@ button:hover, button:active {
 
 
   .snapshot_button {
-    color: var(--color-text);
+    color: var(--color-text-dark);
     background: var(--color-snap-button);
-    padding: 8px 20px;
+    padding: 10px 60px;
     font-size: 12px;
     font-family: 'Nunito', sans-serif;
-    font-weight: 600;
+    font-weight: 800;
+    letter-spacing: 0.3px;
 
     position: relative;
-    top: -10px;
+    top: -8px;
     margin: 0 auto;
     border-radius: 50px;
   }
@@ -104,11 +108,20 @@ button:hover, button:active {
   }
 
   #image_holder {
-    margin-top: 40px;
+    margin-top: 50px;
   }
 
   .placeholder_text {
     text-align: center;
     font-weight: 600;
+  }
 
+  .header_text {
+    color: var(--color-text);
+
+    font-family: 'Nunito', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 3px 5px;
+    margin: 1px auto;
   }
