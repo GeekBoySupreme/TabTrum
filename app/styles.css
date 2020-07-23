@@ -133,12 +133,24 @@ button:hover, button:active {
     margin: 1px auto;
   }
 
+  .header_logo {
+    width: 20px;
+    height: 20px;
+    float: right;
+    padding: 2px;
+    position: relative;
+    top: -3px;
+  }
+  .header_logo img {
+    width: 100%;
+  }
+
 
  .placeholder_text, .img-fluid {
     animation : whooshIn 0.3s;
  }
  .snapshot_tab_swoop_in {
-    animation : slideIn 0.3s;
+    animation : slideIn 0.1s;
  }
 
   .snapshot_tab {

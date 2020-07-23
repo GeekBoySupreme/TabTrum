@@ -154,20 +154,27 @@ document.addEventListener('click', function (event) {
       
       chrome.storage.local.get(['data'], function(items) {
         var render_data = items.data;
-        if(render_data.length > 1)
+        if(render_data.length > 1) {
           document.getElementById('snapshot_list').innerHTML += render_update;
-        else
+          stripAnimation();
+        } 
+        else {
           document.getElementById('snapshot_list').innerHTML = render_update;
+          stripAnimation();
+        }
+          
 
-        setTimeout(function() {
-            console.log("Here");
-            document.getElementById('snapshot_tab_update_' + tracker).className = document.getElementById('snapshot_tab_update_' + tracker).className.replace(' snapshot_tab_swoop_in', '');
-            tracker++;
-          }, 310);        
+     
       });
 
   }
 
+function stripAnimation() {
+  setTimeout(function() {
+    document.getElementById('snapshot_tab_update_' + tracker).className = document.getElementById('snapshot_tab_update_' + tracker).className.replace(' snapshot_tab_swoop_in', '');
+    tracker++;
+  }, 101);   
+}
 
 
 function clickLaunch(snapshot_index) {
