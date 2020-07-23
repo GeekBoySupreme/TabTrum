@@ -10,14 +10,14 @@ body {
     --color-bg: rgb(41, 41, 41);
     --color-card: rgb(51, 51, 51);
     --color-footer: rgb(50, 50, 50);
-    --color-snap-button: #ffe594;
-    --color-button-highlight: #ffc68a;
+    --color-snap-button: #0069FF;
+    --color-button-highlight: #5431a5;
     --color-highlight-bg : rgb(255, 109, 121);
     --color-highlight-scroll : rgb(0,101,202);
     
-    --color-one : rgb(255, 96, 96);
+    --color-one : rgb(255, 158, 129);
     --color-two : #ffdca7;
-    --color-three : rgb(81, 136, 255);
+    --color-three : rgb(137, 174, 255);
     --color-four : rgb(144, 255, 229);
 
     background: var(--color-bg);
@@ -85,7 +85,7 @@ button:hover, button:active {
 
 
   .snapshot_button {
-    color: var(--color-text-dark);
+    color: var(--color-text);
     background: var(--color-snap-button);
     padding: 10px 60px;
     font-size: 12px;
@@ -183,7 +183,7 @@ button:hover, button:active {
   .snapshot_launch {
     font-size: 12px;
     font-family: 'Nunito', sans-serif;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.2px;
     padding: 3px 10px;
     border-radius: 2px;
@@ -216,7 +216,7 @@ button:hover, button:active {
   }
   .snapshot_tab:nth-child(4n+1) .snapshot_launch {
     background: var(--color-one);
-    color: var(--color-text);
+    color: var(--color-text-dark);
   }
 
 
@@ -234,7 +234,7 @@ button:hover, button:active {
   }
   .snapshot_tab:nth-child(4n+3) .snapshot_launch {
     background: var(--color-three);
-    color: var(--color-text);
+    color: var(--color-text-dark);
   }
 
 
