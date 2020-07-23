@@ -10,8 +10,8 @@ body {
     --color-bg: rgb(41, 41, 41);
     --color-card: rgb(51, 51, 51);
     --color-footer: rgb(50, 50, 50);
-    --color-snap-button: #0069FF;
-    --color-button-highlight: #5431a5;
+    --color-snap-button: #378aff;
+    --color-button-highlight: #7a47f1;
     --color-highlight-bg : rgb(255, 109, 121);
     --color-highlight-scroll : rgb(0,101,202);
     
@@ -90,8 +90,8 @@ button:hover, button:active {
     padding: 10px 60px;
     font-size: 12px;
     font-family: 'Nunito', sans-serif;
-    font-weight: 700;
-    letter-spacing: 0.2px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
 
     position: relative;
     top: -8px;
