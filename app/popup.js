@@ -107,7 +107,7 @@ document.addEventListener('click', function (event) {
 
           if(render_data.length == 0) {
             render_home = '<img id="image_holder" class="img-fluid" src="./images/miroodle.png"/> \
-            <span class="placeholder_text"><b>Take your first Snapshot</b><br/>Snapshots store a list of all open Tabs</span>';
+            <span class="placeholder_text"><b>Take your first Snapshot</b><br/>To save a list of all your open tabs</span>';
 
             document.getElementById('snapshot_list').innerHTML = render_home;
           }
@@ -170,10 +170,20 @@ document.addEventListener('click', function (event) {
   }
 
 function stripAnimation() {
-  setTimeout(function() {
-    document.getElementById('snapshot_tab_update_' + tracker).className = document.getElementById('snapshot_tab_update_' + tracker).className.replace(' snapshot_tab_swoop_in', '');
-    tracker++;
-  }, 101);   
+
+  try {
+    setTimeout(function() {
+      document.getElementById('snapshot_tab_update_' + tracker).className = document.getElementById('snapshot_tab_update_' + tracker).className.replace(' snapshot_tab_swoop_in', '');
+      tracker++;
+    }, 101);  
+  }
+  catch(e) {
+    setTimeout(function() {
+      document.getElementById('snapshot_tab_update_' + tracker).className = document.getElementById('snapshot_tab_update_' + tracker).className.replace(' snapshot_tab_swoop_in', '');
+      tracker++;
+    }, 11);  
+  }
+ 
 }
 
 

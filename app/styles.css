@@ -1,3 +1,4 @@
+/* Generic Styles for Body and CSS variables */
 body {
     width: 250px;
     height: 300px;
@@ -19,6 +20,11 @@ body {
     --color-two : #ffdca7;
     --color-three : rgb(137, 174, 255);
     --color-four : rgb(144, 255, 229);
+
+    --color-one-hover : rgb(255, 151, 119);
+    --color-two-hover : #ffd493;
+    --color-three-hover : rgb(114, 158, 253);
+    --color-four-hover : rgb(103, 248, 214);
 
     background: var(--color-bg);
     color: var(--color-text);
@@ -84,6 +90,8 @@ button:hover, button:active {
 
 
 
+
+  /*------- Snapshot List Elements -------*/
   .snapshot_button {
     color: var(--color-text);
     background: var(--color-snap-button);
@@ -163,9 +171,10 @@ button:hover, button:active {
     display: table-cell; 
     vertical-align: middle; 
     height: 60px;
-
-    /* animation : whooshIn 0.3s; */
   }
+
+
+  /* ------- Buttons Styling ------- */
   .snapshot_tab .snapshot_delete {
     float: right;
     
@@ -183,6 +192,8 @@ button:hover, button:active {
   .snapshot_launch, .snapshot_delete {
     position: relative;
     top: -9px;
+
+    transition: all 0.3s ease;
   }
   .snapshot_launch {
     font-size: 12px;
@@ -205,8 +216,6 @@ button:hover, button:active {
     font-size: 15px;
     color: var(--color-text);
     background: var(--color-bg);
-
-    transition: all 0.3s ease;
   }
 
   .snapshot_delete:hover {
@@ -215,12 +224,17 @@ button:hover, button:active {
 
 
 
+  /* ------- Styling Snapshot Tabs ------- */
+
   .snapshot_tab:nth-child(4n+1) {
     border-left: 2px solid var(--color-one);
   }
   .snapshot_tab:nth-child(4n+1) .snapshot_launch {
     background: var(--color-one);
     color: var(--color-text-dark);
+  }
+  .snapshot_tab:nth-child(4n+1) .snapshot_launch:hover {
+    background: var(--color-one-hover);
   }
 
 
@@ -231,6 +245,9 @@ button:hover, button:active {
     background: var(--color-two);
     color: var(--color-text-dark);
   }
+  .snapshot_tab:nth-child(4n+2) .snapshot_launch:hover {
+    background: var(--color-two-hover);
+  }
 
 
   .snapshot_tab:nth-child(4n+3) {
@@ -239,6 +256,9 @@ button:hover, button:active {
   .snapshot_tab:nth-child(4n+3) .snapshot_launch {
     background: var(--color-three);
     color: var(--color-text-dark);
+  }
+  .snapshot_tab:nth-child(4n+3) .snapshot_launch:hover {
+    background: var(--color-three-hover);
   }
 
 
@@ -249,10 +269,14 @@ button:hover, button:active {
     background: var(--color-four);
     color: var(--color-text-dark);
   }
+  .snapshot_tab:nth-child(4n+4) .snapshot_launch:hover {
+    background: var(--color-four-hover);
+  }
 
 
 
 
+  /* ------- Animations ------- */
   @keyframes whooshIn {
     from {
       position: relative;
