@@ -39,7 +39,7 @@ document.addEventListener('click', function (event) {
         if(tab_data) {
           chrome.tabs.query({windowId: chrome.windows.WINDOW_ID_CURRENT}, (tabs) => {
             var new_snapshot = {
-              'title' : 'Snapshot ' + tab_data.length,
+              'title' : getaname(tab_data.length),
               'id' : 'id_' + tab_data.length,
               'tablist' : tabs
             }
@@ -53,7 +53,7 @@ document.addEventListener('click', function (event) {
           var init_data = [];
           chrome.tabs.query({windowId: chrome.windows.WINDOW_ID_CURRENT}, (tabs) => {
             var new_snapshot = {
-              'title' : 'Snapshot ' + init_data.length,
+              'title' : getaname(init_data.length),
               'id' : 'id_' + init_data.length,
               'tablist' : tabs
             }
@@ -69,7 +69,7 @@ document.addEventListener('click', function (event) {
       var init_data = [];
       chrome.tabs.query({windowId: chrome.windows.WINDOW_ID_CURRENT}, (tabs) => {
         var new_snapshot = {
-          'title' : 'Snapshot ' + init_data.length,
+          'title' : getaname(init_data.length),
           'id' : 'id_' + init_data.length,
           'tablist' : tabs
         }
@@ -107,7 +107,7 @@ document.addEventListener('click', function (event) {
 
           if(render_data.length == 0) {
             render_home = '<img id="image_holder" class="img-fluid" src="./images/miroodle.png"/> \
-            <span class="placeholder_text">Hey there,<br/> You have not Snapped Tabs yet!</span>';
+            <span class="placeholder_text"><b>Take your first Snapshot</b><br/>Snapshots store a list of all open Tabs</span>';
 
             document.getElementById('snapshot_list').innerHTML = render_home;
           }
@@ -219,6 +219,22 @@ function clickDelete(snapshot_delete) {
     loadData();
   });
 }
+
+function getaname(index) {
+  if(index == 0)
+    index = Math.floor(Math.random() * 10) + 1; 
+
+  index = Math.floor(Math.random() * 20) + 1; 
+  var index_1 = Math.floor(Math.random() * index) + 1;
+
+  var name_array = ['Natty', 'Healthy', 'Laughing', 'Finding', 'Falling', 'Fishy', 'Happy', 'Jumping', 'Sleeping', 'Rolling', 'Flying', 'Hungover', 'Humorous', 'Cranky', 'Corny', 'Cheesy', 'Thundering', 'Grinning', 'Saving Private', 'Tabslayer', 'Smiling'];
+  var name_array_next = ['Whale', 'Sloth', 'Bear', 'Fish', 'Panda', 'Kangaroo', 'Koala', 'Pigeon', 'Walrus', 'Eagle', 'Lion', 'Elephant', 'Kite', 'Starfish', 'Octopus', 'Rooster', 'Typhoon', 'Barnacles', 'Ant', 'Kitten', 'Bug'];
+  var name = name_array[index] + ' ' + name_array_next[index_1];
+
+  return name;
+}
+
+
 
 
 loadData();
