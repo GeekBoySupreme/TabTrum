@@ -91,10 +91,6 @@ document.addEventListener('click', function (event) {
       chrome.storage.local.get(['data'], function(items) {
         var render_data = items.data;
 
-        if(render_data.length > 0) {
-          render_home = '';
-        }
-
         if(render_data) {
           for(var i = 0; i < render_data.length; i++) {
             render_home += '<div class="snapshot_tab snapshot_tab_style_'+ render_data[i].id +'" id="snapshot_tab_'+ render_data[i].id +'"> \
