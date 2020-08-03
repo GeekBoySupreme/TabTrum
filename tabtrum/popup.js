@@ -193,6 +193,7 @@ function clickLaunch(snapshot_index) {
   
         for(var i=0; i < tabs_to_launch.length; i++) {
           var launch_url = tabs_to_launch[i].url;
+          console.log(launch_url);
           chrome.tabs.create({ url: launch_url });
         }
     
