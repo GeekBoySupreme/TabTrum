@@ -98,6 +98,7 @@ document.addEventListener('click', function (event) {
                             <h5 class="snapshot_title"><span class="snapshot_marker snapshot_marker_'+ render_data[i].id +'"></span>'+ render_data[i].title +'</h5> \
                             <button class="snapshot_delete" id="snapshot_delete_'+render_data[i].id +'">+</button> \
                             <button class="snapshot_launch" id="snapshot_launch_'+ render_data[i].id +'">Launch Tabs</button> \
+                            <button class="snapshot_edit" id="snapshot_edit_'+ render_data[i].id +'">Edit</button> \
                             </div></div>';
           }
 
@@ -146,6 +147,7 @@ document.addEventListener('click', function (event) {
                        <h5 class="snapshot_title">'+ data_snapshot.title +'</h5> \
                        <button class="snapshot_delete" id="snapshot_delete_'+ data_snapshot.id +'">+</button> \
                        <button class="snapshot_launch" id="snapshot_launch_'+ data_snapshot.id +'">Launch Tabs</button> \
+                       <button class="snapshot_edit" id="snapshot_edit_'+ data_snapshot.id +'">Edit</button> \
                        </div></div>';
       
       chrome.storage.local.get(['data'], function(items) {

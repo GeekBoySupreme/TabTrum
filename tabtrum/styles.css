@@ -14,7 +14,7 @@ body {
     --color-snap-button: #5289ff;
     --color-button-highlight: #4897ff;
     --color-highlight-bg : rgb(255, 109, 121);
-    --color-highlight-scroll : rgb(0,101,202);
+    --color-highlight-scroll : rgb(61, 130, 235);
     
     --color-one : rgb(255, 158, 129);
     --color-two : #ffdca7;
@@ -189,7 +189,7 @@ button:hover, button:active {
     font-weight: 600;
     letter-spacing: 0.3px;
   }
-  .snapshot_launch, .snapshot_delete {
+  .snapshot_launch, .snapshot_delete, .snapshot_edit {
     position: relative;
     top: -9px;
 
@@ -204,6 +204,20 @@ button:hover, button:active {
     border-radius: 2px;
     transition: all 0.3s ease;
   }
+  .snapshot_edit {
+    font-size: 12px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    padding: 4px 10px;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    margin-left: 6px;
+
+    color: var(--color-text);
+    background-color: var(--color-bg);
+  }
+
   .snapshot_delete {
     width: 26px;
     height: 26px;
@@ -222,6 +236,9 @@ button:hover, button:active {
     background: var(--color-text-dark);
   }
 
+  .snapshot_edit:hover {
+    background: var(--color-text-dark);
+  }
 
 
   /* ------- Styling Snapshot Tabs ------- */
