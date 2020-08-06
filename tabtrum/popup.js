@@ -22,6 +22,8 @@ document.addEventListener('click', function (event) {
     clickDelete(snapshot_index);
   else if(action == 'launch')
     clickLaunch(snapshot_index);
+  else if(action == 'edit')
+    clickEdit(snapshot_index);
   else
     return;
 
@@ -228,6 +230,17 @@ function clickDelete(snapshot_delete) {
     loadData();
   });
 }
+
+
+function clickEdit(snapshot_edit) {
+  chrome.storage.local.get(['data'], function(items) {
+    var index = snapshot_edit;
+
+    
+
+  });
+}
+
 
 function getaname(index) {
   if(index == 0)
