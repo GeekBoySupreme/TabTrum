@@ -56,6 +56,27 @@ button:hover, button:active {
     flex-direction: column;
 }
 
+
+.snapshot_profile_edit {
+    height: 300px;
+    width: calc(93% + 5px);
+    overflow-y: scroll;
+    border-radius: 20px 20px 0px 0px;
+    margin-top: 10px;
+
+    color: var(--color-text);
+    background: var(--color-card);
+    padding: 10px 15px 20px 15px;
+    position: relative;
+    left: -10px;
+
+
+    display: flex;
+    flex-direction: column;
+
+    display: none;
+}
+
 .footer {
     position: relative;
     width: 250px;
