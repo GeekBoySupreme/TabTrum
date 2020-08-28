@@ -236,13 +236,15 @@ function clickEdit(snapshot_edit) {
   chrome.storage.local.get(['data'], function(items) {
     var index = snapshot_edit;
 
-    tabs_to_expand = items.data[index].tablist;
+    tabs_to_expand = items.data[index];
     
     document.getElementById('snapshot_list').style.display = "none";
     document.getElementById('footer').style.display = "none";
     document.getElementById('snapshot_profile_edit').style.display = "block";
 
+    var edit_panel_content = '<span class="tab_edit_title">'+ tabs_to_expand.title +'</span>';
 
+    document.getElementById('snapshot_profile_edit').innerHTML = edit_panel_content;
   });
 }
 

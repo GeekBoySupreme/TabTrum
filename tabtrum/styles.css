@@ -354,3 +354,14 @@ button:hover, button:active {
       left: 0px;
     }
   }
+
+  .tab_edit_title {
+    color: var(--color-text);
+
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 6px 5px;
+    margin: 1px auto;
+    margin-top: 15px;
+  }
