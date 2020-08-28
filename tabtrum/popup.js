@@ -192,7 +192,7 @@ function clickLaunch(snapshot_index) {
   
     try {
       chrome.storage.local.get(['data'], function(items) {
-        document.write(items.data[index]);
+        //document.write(items.data[index]);
         tabs_to_launch = items.data[index].tablist;
   
         for(var i=0; i < tabs_to_launch.length; i++) {
@@ -236,7 +236,12 @@ function clickEdit(snapshot_edit) {
   chrome.storage.local.get(['data'], function(items) {
     var index = snapshot_edit;
 
+    tabs_to_expand = items.data[index].tablist;
     
+    document.getElementById('snapshot_list').style.display = "none";
+    document.getElementById('footer').style.display = "none";
+    document.getElementById('snapshot_profile_edit').style.display = "block";
+
 
   });
 }

@@ -111,6 +111,22 @@ button:hover, button:active {
 
 
 
+  .snapshot_profile_edit::-webkit-scrollbar {
+    width: 0.3rem;
+  }
+  
+  .snapshot_profile_edit::-webkit-scrollbar-track {
+    background: rgba(49, 49, 49, 0.075);
+  }
+  
+  .snapshot_profile_edit::-webkit-scrollbar-thumb {
+    background: var(--color-highlight-scroll);
+    width: 0.3rem;
+    border-radius: 10px;
+  }
+
+
+
 
   /*------- Snapshot List Elements -------*/
   .snapshot_button {
