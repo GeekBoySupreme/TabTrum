@@ -360,8 +360,12 @@ button:hover, button:active {
 
     font-family: 'Nunito', sans-serif;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 400;
     padding: 6px 5px;
     margin: 1px auto;
     margin-top: 15px;
+    background: var(--color-card);
+    border-radius: 5px;
+
+    animation: whooshIn 0.3s;
   }
