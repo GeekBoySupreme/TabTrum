@@ -1,4 +1,4 @@
-# Contributing to graphqurl
+# Contributing to TabTrum
 
 *First*: if you're unsure or afraid of anything, just ask or submit the issue or
 pull request anyway. You won't be yelled at for giving your best effort. The
