@@ -265,6 +265,19 @@ function clickEdit(snapshot_edit) {
     var text = document.createTextNode("changes will be saved automatically.");
     para.appendChild(text);
 
+    var back_button = document.createElement("button");
+    back_button.setAttribute("class", "snapshot_edit name_edit");
+    var text = document.createTextNode("back");
+    back_button.appendChild(text);
+
+    back_button.onclick = function () {
+      document.getElementById("snapshot_list").style.display = "flex";
+      document.getElementById("footer").style.display = "block";
+      document.getElementById("snapshot_profile_edit").innerHTML = "";
+      document.getElementById("snapshot_profile_edit").style.display = "none";
+    };
+
+    document.getElementById("snapshot_profile_edit").appendChild(back_button);
     document.getElementById("snapshot_profile_edit").appendChild(input_field);
     document.getElementById("snapshot_profile_edit").appendChild(para);
   });

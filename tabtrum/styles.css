@@ -222,6 +222,7 @@ button:active {
 
   transition: all 0.3s ease;
 }
+
 .snapshot_launch {
   font-size: 12px;
   font-family: "Nunito", sans-serif;
@@ -244,7 +245,10 @@ button:active {
   color: var(--color-text);
   background-color: var(--color-bg);
 }
-
+.name_edit {
+  top: 5px;
+  margin-left: 0px;
+}
 .snapshot_delete {
   width: 26px;
   height: 26px;
