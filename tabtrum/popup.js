@@ -255,6 +255,7 @@ function clickEdit(snapshot_edit) {
 
     input_field.addEventListener("input", function () {
       var new_items = items;
+      console.log(items.data[index]);
       new_items.data[index].title = input_field.value;
 
       setData(new_items.data);
@@ -262,12 +263,12 @@ function clickEdit(snapshot_edit) {
     });
 
     var para = document.createElement("p");
-    var text = document.createTextNode("changes will be saved automatically.");
+    var text = document.createTextNode("☑️  changes are saved automatically.");
     para.appendChild(text);
 
     var back_button = document.createElement("button");
     back_button.setAttribute("class", "snapshot_edit name_edit");
-    var text = document.createTextNode("back");
+    var text = document.createTextNode("back 😶");
     back_button.appendChild(text);
 
     back_button.onclick = function () {

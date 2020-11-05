@@ -1,359 +1,381 @@
 /* Generic Styles for Body and CSS variables */
 body {
-  width: 250px;
-  height: 300px;
-  font-family: "Nunito", sans-serif;
+    width: 250px;
+    height: 300px;
+    font-family: 'Nunito', sans-serif;
 
-  --color-text: #ffffff;
-  --color-text-dark: rgb(77, 77, 77);
-  --color-text-light: #a8a8a8;
-  --color-bg: rgb(41, 41, 41);
-  --color-card: rgb(51, 51, 51);
-  --color-footer: rgb(50, 50, 50);
-  --color-snap-button: #5289ff;
-  --color-button-highlight: #4897ff;
-  --color-highlight-bg: rgb(255, 109, 121);
-  --color-highlight-scroll: rgb(61, 130, 235);
 
-  --color-one: rgb(255, 158, 129);
-  --color-two: #ffdca7;
-  --color-three: rgb(137, 174, 255);
-  --color-four: rgb(144, 255, 229);
+    --color-text: #ffffff;
+    --color-text-dark: rgb(77, 77, 77);
+    --color-text-light: #a8a8a8;
+    --color-bg: rgb(41, 41, 41);
+    --color-card: rgb(51, 51, 51);
+    --color-footer: rgb(50, 50, 50);
+    --color-snap-button: #5289ff;
+    --color-button-highlight: #4897ff;
+    --color-highlight-bg : rgb(255, 109, 121);
+    --color-highlight-scroll : rgb(61, 130, 235);
+    
+    --color-one : rgb(255, 158, 129);
+    --color-two : #ffdca7;
+    --color-three : rgb(137, 174, 255);
+    --color-four : rgb(144, 255, 229);
 
-  --color-one-hover: rgb(255, 151, 119);
-  --color-two-hover: #ffd493;
-  --color-three-hover: rgb(114, 158, 253);
-  --color-four-hover: rgb(103, 248, 214);
+    --color-one-hover : rgb(255, 151, 119);
+    --color-two-hover : #ffd493;
+    --color-three-hover : rgb(114, 158, 253);
+    --color-four-hover : rgb(103, 248, 214);
 
-  background: var(--color-bg);
-  color: var(--color-text);
+    --color-button : #1074E8;
+    --color-button-hover : #1e6af8;
+
+    background: var(--color-bg);
+    color: var(--color-text);
 }
 
 button {
   border: none;
   outline: none;
 }
-button:hover,
-button:active {
+button:hover, button:active {
   outline: none;
 }
 
 .snapshot_list {
-  height: 260px;
-  width: calc(93% + 5px);
-  overflow-y: scroll;
-  border-radius: 20px 20px 0px 0px;
-  margin-top: 10px;
+    height: 260px;
+    width: calc(93% + 5px);
+    overflow-y: scroll;
+    border-radius: 20px 20px 0px 0px;
+    margin-top: 10px;
 
-  color: var(--color-text);
-  background: var(--color-card);
-  padding: 10px 15px 20px 15px;
-  position: relative;
-  left: -10px;
+    color: var(--color-text);
+    background: var(--color-card);
+    padding: 10px 15px 20px 15px;
+    position: relative;
+    left: -10px;
 
-  display: flex;
-  flex-direction: column;
+
+    display: flex;
+    flex-direction: column;
 }
 
+
 .snapshot_profile_edit {
-  height: 300px;
-  width: calc(93% + 5px);
-  overflow-y: scroll;
-  border-radius: 20px 20px 0px 0px;
-  margin-top: 10px;
+    height: 300px;
+    width: calc(93% + 5px);
+    overflow-y: scroll;
+    border-radius: 20px 20px 0px 0px;
+    margin-top: 10px;
 
-  color: var(--color-text);
-  background: var(--color-card);
-  padding: 10px 15px 20px 15px;
-  position: relative;
-  left: -10px;
+    color: var(--color-text);
+    background: var(--color-card);
+    padding: 10px 15px 20px 15px;
+    position: relative;
+    left: -10px;
 
-  display: flex;
-  flex-direction: column;
-
-  display: none;
+    display: none;
 }
 
 .footer {
-  position: relative;
-  width: 250px;
-  top: -20px;
-  right: -10px;
-  left: -10px;
-  z-index: 10;
-  height: 30px;
-  padding: 10px;
-  border-radius: 25px 25px 0px 0px;
-  text-align: center;
-
-  background: linear-gradient(to top, var(--color-card), transparent);
-}
-
-/*------- Scrollbar --------------*/
-.snapshot_list::-webkit-scrollbar {
-  width: 0.3rem;
-}
-
-.snapshot_list::-webkit-scrollbar-track {
-  background: rgba(49, 49, 49, 0.075);
-}
-
-.snapshot_list::-webkit-scrollbar-thumb {
-  background: var(--color-highlight-scroll);
-  width: 0.3rem;
-  border-radius: 10px;
-}
-
-.snapshot_profile_edit::-webkit-scrollbar {
-  width: 0.3rem;
-}
-
-.snapshot_profile_edit::-webkit-scrollbar-track {
-  background: rgba(49, 49, 49, 0.075);
-}
-
-.snapshot_profile_edit::-webkit-scrollbar-thumb {
-  background: var(--color-highlight-scroll);
-  width: 0.3rem;
-  border-radius: 10px;
-}
-
-/*------- Snapshot List Elements -------*/
-.snapshot_button {
-  color: var(--color-text);
-  background: var(--color-snap-button);
-  padding: 10px 60px;
-  font-size: 12px;
-  font-family: "Nunito", sans-serif;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-
-  position: relative;
-  top: -8px;
-  margin: 0 auto;
-  border-radius: 50px;
-
-  transition: all 0.2s ease;
-}
-
-.snapshot_button:hover {
-  background: var(--color-button-highlight);
-}
-
-.placeholder_text {
-  font-size: 12px;
-  color: var(--color-text-light);
-}
-.placeholder_text b {
-  font-size: 15px;
-}
-
-.img-fluid {
-  width: 100px;
-  margin: 10px auto;
-}
-
-#image_holder {
-  margin-top: 50px;
-}
-
-.placeholder_text {
-  text-align: center;
-  font-weight: 600;
-}
-
-.header_text {
-  color: var(--color-text);
-
-  font-family: "Nunito", sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  padding: 3px 5px;
-  margin: 1px auto;
-}
-
-.header_logo {
-  width: 20px;
-  height: 20px;
-  float: right;
-  padding: 2px;
-  position: relative;
-  top: -3px;
-}
-.header_logo img {
-  width: 100%;
-}
-
-.placeholder_text,
-.img-fluid {
-  animation: whooshIn 0.3s;
-}
-.snapshot_tab_swoop_in {
-  animation: slideIn 0.1s;
-}
-
-.snapshot_tab {
-  padding: 0px 10px;
-  margin: 6px 0px;
-  display: table-cell;
-  vertical-align: middle;
-  height: 60px;
-}
-
-/* ------- Buttons Styling ------- */
-.snapshot_tab .snapshot_delete {
-  float: right;
-}
-.snapshot_tab .snapshot_tab_container {
-  position: relative;
-  top: -20px;
-}
-.snapshot_title {
-  font-size: 13px;
-  font-family: "Nunito", sans-serif;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-}
-.snapshot_launch,
-.snapshot_delete,
-.snapshot_edit {
-  position: relative;
-  top: -9px;
-
-  transition: all 0.3s ease;
-}
-
-.snapshot_launch {
-  font-size: 12px;
-  font-family: "Nunito", sans-serif;
-  font-weight: 700;
-  letter-spacing: 0.2px;
-  padding: 3px 10px;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
-.snapshot_edit {
-  font-size: 12px;
-  font-family: "Nunito", sans-serif;
-  font-weight: 600;
-  letter-spacing: 0.2px;
-  padding: 4px 10px;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-  margin-left: 6px;
-
-  color: var(--color-text);
-  background-color: var(--color-bg);
-}
-.name_edit {
-  top: 5px;
-  margin-left: 0px;
-}
-.snapshot_delete {
-  width: 26px;
-  height: 26px;
-  border-radius: 50px;
-  transform: rotate(45deg);
-  position: relative;
-  left: 10px;
-
-  font-weight: 600;
-  font-size: 15px;
-  color: var(--color-text);
-  background: var(--color-bg);
-}
-
-.snapshot_delete:hover {
-  background: var(--color-text-dark);
-}
-
-.snapshot_edit:hover {
-  background: var(--color-text-dark);
-}
-
-/* ------- Styling Snapshot Tabs ------- */
-
-.snapshot_tab:nth-child(4n + 1) {
-  border-left: 2px solid var(--color-one);
-}
-.snapshot_tab:nth-child(4n + 1) .snapshot_launch {
-  background: var(--color-one);
-  color: var(--color-text-dark);
-}
-.snapshot_tab:nth-child(4n + 1) .snapshot_launch:hover {
-  background: var(--color-one-hover);
-}
-
-.snapshot_tab:nth-child(4n + 2) {
-  border-left: 2px solid var(--color-two);
-}
-.snapshot_tab:nth-child(4n + 2) .snapshot_launch {
-  background: var(--color-two);
-  color: var(--color-text-dark);
-}
-.snapshot_tab:nth-child(4n + 2) .snapshot_launch:hover {
-  background: var(--color-two-hover);
-}
-
-.snapshot_tab:nth-child(4n + 3) {
-  border-left: 2px solid var(--color-three);
-}
-.snapshot_tab:nth-child(4n + 3) .snapshot_launch {
-  background: var(--color-three);
-  color: var(--color-text-dark);
-}
-.snapshot_tab:nth-child(4n + 3) .snapshot_launch:hover {
-  background: var(--color-three-hover);
-}
-
-.snapshot_tab:nth-child(4n + 4) {
-  border-left: 2px solid var(--color-four);
-}
-.snapshot_tab:nth-child(4n + 4) .snapshot_launch {
-  background: var(--color-four);
-  color: var(--color-text-dark);
-}
-.snapshot_tab:nth-child(4n + 4) .snapshot_launch:hover {
-  background: var(--color-four-hover);
-}
-
-/* ------- Animations ------- */
-@keyframes whooshIn {
-  from {
     position: relative;
-    opacity: 0;
-    top: 3px;
-  }
-  to {
-    opacity: 1;
-    top: 0px;
-  }
+    width: 250px;
+    top: -20px;
+    right: -10px;
+    left: -10px;
+    z-index: 10;
+    height: 30px;
+    padding: 10px;
+    border-radius: 25px 25px 0px 0px;
+    text-align: center;
+
+    background: linear-gradient(to top, var(--color-card), transparent);
 }
 
-@keyframes slideIn {
-  from {
+
+
+  /*------- Scrollbar --------------*/
+  .snapshot_list::-webkit-scrollbar {
+    width: 0.3rem;
+  }
+  
+  .snapshot_list::-webkit-scrollbar-track {
+    background: rgba(49, 49, 49, 0.075);
+  }
+  
+  .snapshot_list::-webkit-scrollbar-thumb {
+    background: var(--color-highlight-scroll);
+    width: 0.3rem;
+    border-radius: 10px;
+  }
+
+
+
+  .snapshot_profile_edit::-webkit-scrollbar {
+    width: 0.3rem;
+  }
+  
+  .snapshot_profile_edit::-webkit-scrollbar-track {
+    background: rgba(49, 49, 49, 0.075);
+  }
+  
+  .snapshot_profile_edit::-webkit-scrollbar-thumb {
+    background: var(--color-highlight-scroll);
+    width: 0.3rem;
+    border-radius: 10px;
+  }
+
+
+
+
+  /*------- Snapshot List Elements -------*/
+  .snapshot_button {
+    color: var(--color-text);
+    background: var(--color-snap-button);
+    padding: 10px 60px;
+    font-size: 12px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+
     position: relative;
-    opacity: 0;
-    left: -3px;
+    top: -8px;
+    margin: 0 auto;
+    border-radius: 50px;
+
+    transition : all 0.2s ease;
   }
-  to {
-    opacity: 1;
-    left: 0px;
+
+  .snapshot_button:hover {
+    background: var(--color-button-highlight);
   }
-}
 
-.tab_edit_title {
-  color: var(--color-text);
-  width: 100%;
+  .placeholder_text {
+    font-size: 12px;
+    color: var(--color-text-light);
+  }
+  .placeholder_text b {
+    font-size: 15px;
+  }
 
-  font-family: "Nunito", sans-serif;
-  font-size: 10px;
-  font-weight: 400;
-  padding: 6px 5px;
-  margin: 1px auto;
-  margin-top: 15px;
-  background: var(--color-card);
-  border-radius: 5px;
+  .img-fluid {
+    width: 100px;
+    margin: 10px auto;
+  }
 
-  animation: whooshIn 0.3s;
-}
+  #image_holder {
+    margin-top: 50px;
+  }
+
+  .placeholder_text {
+    text-align: center;
+    font-weight: 600;
+  }
+
+  .header_text {
+    color: var(--color-text);
+
+    font-family: 'Nunito', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 3px 5px;
+    margin: 1px auto;
+  }
+
+  .header_logo {
+    width: 20px;
+    height: 20px;
+    float: right;
+    padding: 2px;
+    position: relative;
+    top: -3px;
+  }
+  .header_logo img {
+    width: 100%;
+  }
+
+
+ .placeholder_text, .img-fluid {
+    animation : whooshIn 0.3s;
+ }
+ .snapshot_tab_swoop_in {
+    animation : slideIn 0.1s;
+ }
+
+  .snapshot_tab {
+    padding: 0px 10px;
+    margin: 6px 0px;
+    display: table-cell; 
+    vertical-align: middle; 
+    height: 60px;
+  }
+
+
+  /* ------- Buttons Styling ------- */
+  .snapshot_tab .snapshot_delete {
+    float: right;
+    
+  }
+  .snapshot_tab .snapshot_tab_container {
+    position: relative;
+    top: -20px;
+  }
+  .snapshot_title {
+    font-size: 13px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+  .snapshot_launch, .snapshot_delete, .snapshot_edit {
+    position: relative;
+    top: -9px;
+
+    transition: all 0.3s ease;
+  }
+  .snapshot_launch {
+    font-size: 12px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    padding: 3px 10px;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  .snapshot_edit {
+    font-size: 12px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    padding: 4px 10px;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    margin-left: 6px;
+
+    color: var(--color-text);
+    background-color: var(--color-bg);
+  }
+
+  .name_edit {
+    background-color: var(--color-button);
+    position: relative;
+    top: 94%;
+    left: 71.5%;
+  }
+  .name_edit:hover {
+    background-color: var(--color-button-hover);
+  }
+
+  .snapshot_delete {
+    width: 26px;
+    height: 26px;
+    border-radius: 50px;
+    transform: rotate(45deg);
+    position: relative;
+    left: 10px;
+
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--color-text);
+    background: var(--color-bg);
+  }
+
+  .snapshot_delete:hover {
+    background: var(--color-text-dark);
+  }
+
+  .snapshot_edit:hover {
+    background: var(--color-text-dark);
+  }
+
+
+  /* ------- Styling Snapshot Tabs ------- */
+
+  .snapshot_tab:nth-child(4n+1) {
+    border-left: 2px solid var(--color-one);
+  }
+  .snapshot_tab:nth-child(4n+1) .snapshot_launch {
+    background: var(--color-one);
+    color: var(--color-text-dark);
+  }
+  .snapshot_tab:nth-child(4n+1) .snapshot_launch:hover {
+    background: var(--color-one-hover);
+  }
+
+
+  .snapshot_tab:nth-child(4n+2) {
+    border-left: 2px solid var(--color-two);
+  }
+  .snapshot_tab:nth-child(4n+2) .snapshot_launch {
+    background: var(--color-two);
+    color: var(--color-text-dark);
+  }
+  .snapshot_tab:nth-child(4n+2) .snapshot_launch:hover {
+    background: var(--color-two-hover);
+  }
+
+
+  .snapshot_tab:nth-child(4n+3) {
+    border-left: 2px solid var(--color-three);
+  }
+  .snapshot_tab:nth-child(4n+3) .snapshot_launch {
+    background: var(--color-three);
+    color: var(--color-text-dark);
+  }
+  .snapshot_tab:nth-child(4n+3) .snapshot_launch:hover {
+    background: var(--color-three-hover);
+  }
+
+
+  .snapshot_tab:nth-child(4n+4) {
+    border-left: 2px solid var(--color-four);
+  }
+  .snapshot_tab:nth-child(4n+4) .snapshot_launch {
+    background: var(--color-four);
+    color: var(--color-text-dark);
+  }
+  .snapshot_tab:nth-child(4n+4) .snapshot_launch:hover {
+    background: var(--color-four-hover);
+  }
+
+
+
+
+  /* ------- Animations ------- */
+  @keyframes whooshIn {
+    from {
+      position: relative;
+      opacity: 0;
+      top: 3px;
+    }
+    to {
+      opacity: 1;
+      top: 0px;
+    }
+  }
+
+  @keyframes slideIn {
+    from {
+      position: relative;
+      opacity: 0;
+      left: -3px;
+    }
+    to {
+      opacity: 1;
+      left: 0px;
+    }
+  }
+
+  .tab_edit_title {
+    color: var(--color-text);
+    background-color: var(--color-bg);
+
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 6px 8px;
+    margin: 1px auto;
+    text-align: center;
+    border-radius: 5px;
+
+    animation: whooshIn 0.3s;
+    border: none;
+  }
