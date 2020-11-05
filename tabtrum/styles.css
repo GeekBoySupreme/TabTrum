@@ -367,6 +367,7 @@ button:hover, button:active {
   .tab_edit_title {
     color: var(--color-text);
     background-color: var(--color-bg);
+    display: block;
 
     font-family: 'Nunito', sans-serif;
     font-size: 14px;
@@ -375,7 +376,17 @@ button:hover, button:active {
     margin: 1px auto;
     text-align: center;
     border-radius: 5px;
+    position: relative;
+    top: -10px;
 
-    animation: whooshIn 0.3s;
+    animation: whooshIn 0.2s;
     border: none;
+  }
+
+  .snapshot_profile_edit p {
+    display: block;
+    text-align: center;
+    
+    position: relative;
+    top: -10px;
   }
