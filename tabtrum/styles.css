@@ -386,6 +386,7 @@ button:hover, button:active {
   .snapshot_profile_edit p {
     display: block;
     text-align: center;
+    color: var(--color-text-light);
     
     position: relative;
     top: -10px;
