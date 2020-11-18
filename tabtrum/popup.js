@@ -269,15 +269,18 @@ function clickEdit(snapshot_edit) {
 
 
     var tabs_list_show = items.data[index].tablist;
-    var tablistshowhtml = "";
+    var tablistshowhtml = '<div class="tablist_holder">';
 
     for (var q = 0; q < tabs_list_show.length; q++) {
       tablistshowhtml += '<div class="tablist_tab_show"> \
-        <a href="'+ tabs_list_show[q].url + '"> \
+        <a target="_blank" href="'+ tabs_list_show[q].url + '"> \
         <img class="favicon_image" src="' + tabs_list_show[q].favIconUrl + '"/> \
-        <span class="tab_title">' + (tabs_list_show[q].title).substring(0, 30) + '</span> \
-        </a>'
+        <span class="tab_title">' + (tabs_list_show[q].title).substring(0, 25) + '..</span> \
+        </a> \
+        </div>'
     }
+
+    tablistshowhtml += '</div>';
 
 
     var back_button = document.createElement("button");

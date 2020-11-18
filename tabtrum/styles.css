@@ -95,7 +95,7 @@ button:hover, button:active {
 
   /*------- Scrollbar --------------*/
   .snapshot_list::-webkit-scrollbar {
-    width: 0.3rem;
+    width: 0.2rem;
   }
   
   .snapshot_list::-webkit-scrollbar-track {
@@ -104,14 +104,14 @@ button:hover, button:active {
   
   .snapshot_list::-webkit-scrollbar-thumb {
     background: var(--color-highlight-scroll);
-    width: 0.3rem;
+    width: 0.2rem;
     border-radius: 10px;
   }
 
 
 
   .snapshot_profile_edit::-webkit-scrollbar {
-    width: 0.3rem;
+    width: 0.2rem;
   }
   
   .snapshot_profile_edit::-webkit-scrollbar-track {
@@ -120,7 +120,7 @@ button:hover, button:active {
   
   .snapshot_profile_edit::-webkit-scrollbar-thumb {
     background: var(--color-highlight-scroll);
-    width: 0.3rem;
+    width: 0.2rem;
     border-radius: 10px;
   }
 
@@ -259,6 +259,7 @@ button:hover, button:active {
     position: fixed;
     top: 91%;
     left: 68%;
+    z-index: 10;
   }
   .name_edit:hover {
     background-color: var(--color-button-hover);
@@ -373,11 +374,11 @@ button:hover, button:active {
     font-size: 14px;
     font-weight: 400;
     padding: 6px 8px;
-    margin: 1px auto;
+    margin: 8px auto 15px auto;
     text-align: center;
     border-radius: 5px;
     position: relative;
-    top: -10px;
+    
 
     animation: whooshIn 0.2s;
     border: none;
@@ -389,5 +390,43 @@ button:hover, button:active {
     color: var(--color-text-light);
     
     position: relative;
-    top: -10px;
+    top: -5px;
+    margin-bottom: 15px;
+  }
+
+
+  .tablist_holder {
+    margin-bottom: 18px;
+  }
+
+  .tablist_tab_show {
+    width: 95%;
+    padding: 4px;
+    margin-top: 4px;
+    margin-bottom: 2px;
+    display: flex;
+    align-items: center;
+    z-index: 8;
+    animation: whooshIn 0.2s;
+  }
+
+  .tablist_tab_show img {
+    width: 15px;
+    height: 15px;
+    margin-right: 6px;
+  }
+
+  .tab_title {
+    color: white;
+    position: relative;
+    top: -3px;
+    transition: all 0.2s ease;
+  }
+
+  .tab_title:hover {
+    color: var(--color-button-highlight);
+  }
+
+  .tablist_tab_show a {
+    text-decoration: none;
   }
