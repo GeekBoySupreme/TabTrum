@@ -21,6 +21,7 @@ document.addEventListener(
     if (action == "delete") clickDelete(snapshot_index);
     else if (action == "launch") clickLaunch(snapshot_index);
     else if (action == "edit") clickEdit(snapshot_index);
+    else if (action == "back") getBackHome();
     else return;
   },
   false
@@ -266,21 +267,36 @@ function clickEdit(snapshot_edit) {
     var text = document.createTextNode("☑️  changes are saved automatically.");
     para.appendChild(text);
 
+
+    var tabs_list_show = items.data[index].tablist;
+    var tablistshowhtml = "";
+
+    for (var q = 0; q < tabs_list_show.length; q++) {
+      tablistshowhtml += '<div class="tablist_tab_show"> \
+        <a href="'+ tabs_list_show[q].url + '"> \
+        <img class="favicon_image" src="' + tabs_list_show[q].favIconUrl + '"/> \
+        <span class="tab_title">' + (tabs_list_show[q].title).substring(0, 30) + '</span> \
+        </a>'
+    }
+
+
     var back_button = document.createElement("button");
     back_button.setAttribute("class", "snapshot_edit name_edit");
+    back_button.setAttribute("id", "snapshot_back_10");
     var text = document.createTextNode("back 😶");
     back_button.appendChild(text);
 
-    back_button.onclick = function () {
-      document.getElementById("snapshot_list").style.display = "flex";
-      document.getElementById("footer").style.display = "block";
-      document.getElementById("snapshot_profile_edit").innerHTML = "";
-      document.getElementById("snapshot_profile_edit").style.display = "none";
-    };
+    // back_button.onclick = function () {
+    //   document.getElementById("snapshot_profile_edit").innerHTML = "";
+    //   document.getElementById("snapshot_profile_edit").style.display = "none";
+    //   document.getElementById("snapshot_list").style.display = "block";
+    //   document.getElementById("footer").style.display = "block";
+    // };
 
     document.getElementById("snapshot_profile_edit").appendChild(back_button);
     document.getElementById("snapshot_profile_edit").appendChild(input_field);
     document.getElementById("snapshot_profile_edit").appendChild(para);
+    document.getElementById("snapshot_profile_edit").innerHTML += tablistshowhtml;
   });
 }
 
@@ -343,3 +359,11 @@ function getaname(index) {
 
 loadData();
 var tracker = 0;
+
+
+function getBackHome() {
+  document.getElementById("snapshot_profile_edit").innerHTML = "";
+  document.getElementById("snapshot_profile_edit").style.display = "none";
+  document.getElementById("snapshot_list").style.display = "flex";
+  document.getElementById("footer").style.display = "block";
+}

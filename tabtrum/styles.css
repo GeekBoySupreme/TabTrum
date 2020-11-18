@@ -256,9 +256,9 @@ button:hover, button:active {
 
   .name_edit {
     background-color: var(--color-button);
-    position: relative;
-    top: 94%;
-    left: 71.5%;
+    position: fixed;
+    top: 91%;
+    left: 68%;
   }
   .name_edit:hover {
     background-color: var(--color-button-hover);
