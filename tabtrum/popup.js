@@ -277,7 +277,8 @@ function clickEdit(snapshot_edit) {
         <img class="favicon_image" src="' + tabs_list_show[q].favIconUrl + '"/> \
         <span class="tab_title">' + (tabs_list_show[q].title).substring(0, 25) + '..</span> \
         </a> \
-        </div>'
+      \
+        </div > '
     }
 
     tablistshowhtml += '</div>';

@@ -1,0 +1,8 @@
+{
+    "editor.formatOnSave": true,
+    "formattingToggle.affects": [
+        "formatOnPaste",
+        "formatOnSave",
+        "formatOnType"
+    ]
+}

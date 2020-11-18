@@ -419,12 +419,12 @@ button:hover, button:active {
   .tab_title {
     color: white;
     position: relative;
-    top: -3px;
+    top: -4px;
     transition: all 0.2s ease;
   }
 
   .tab_title:hover {
-    color: var(--color-button-highlight);
+    color: var(--color-four);
   }
 
   .tablist_tab_show a {
