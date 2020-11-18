@@ -420,6 +420,7 @@ button:hover, button:active {
     color: white;
     position: relative;
     top: -4px;
+    font-weight: 600;
     transition: all 0.2s ease;
   }
 

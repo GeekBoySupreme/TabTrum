@@ -22,6 +22,7 @@ document.addEventListener(
     else if (action == "launch") clickLaunch(snapshot_index);
     else if (action == "edit") clickEdit(snapshot_index);
     else if (action == "back") getBackHome();
+    else if (action == "tabedit") update_snapshot_name(event.target.id, snapshot_index);
     else return;
   },
   false
@@ -252,16 +253,17 @@ function clickEdit(snapshot_edit) {
 
     var input_field = document.createElement("input");
     input_field.setAttribute("class", "tab_edit_title");
+    input_field.setAttribute("id", "tablist_tabedit_id_" + index);
     input_field.setAttribute("value", tabs_to_expand.title);
 
-    input_field.addEventListener("input", function () {
-      var new_items = items;
-      console.log(items.data[index]);
-      new_items.data[index].title = input_field.value;
+    // input_field.addEventListener("input", function () {
+    //   var new_items = items;
+    //   console.log(items.data[index]);
+    //   new_items.data[index].title = input_field.value;
 
-      setData(new_items.data);
-      loadData();
-    });
+    //   setData(new_items.data);
+    //   loadData();
+    // });
 
     var para = document.createElement("p");
     var text = document.createTextNode("☑️  changes are saved automatically.");
@@ -275,7 +277,7 @@ function clickEdit(snapshot_edit) {
       tablistshowhtml += '<div class="tablist_tab_show"> \
         <a target="_blank" href="'+ tabs_list_show[q].url + '"> \
         <img class="favicon_image" src="' + tabs_list_show[q].favIconUrl + '"/> \
-        <span class="tab_title">' + (tabs_list_show[q].title).substring(0, 25) + '..</span> \
+        <span class="tab_title">' + (tabs_list_show[q].title).substring(0, 30) + '..</span> \
         </a> \
       \
         </div > '
@@ -370,4 +372,22 @@ function getBackHome() {
   document.getElementById("snapshot_profile_edit").style.display = "none";
   document.getElementById("snapshot_list").style.display = "flex";
   document.getElementById("footer").style.display = "block";
+}
+
+function update_snapshot_name(target_id, snapshot_index) {
+  var input_field = document.getElementById(target_id);
+  console.log(snapshot_index);
+
+  chrome.storage.local.get(["data"], function (items) {
+    var index = snapshot_index;
+    var new_items = items;
+    //console.log(items.data[index]);
+
+    input_field.addEventListener("input", function () {
+      new_items.data[snapshot_index].title = input_field.value;
+
+      setData(new_items.data);
+      loadData();
+    });
+  });
 }

@@ -1,14 +1,23 @@
 {
-    "manifest_version": 2,
-    "name": "TabTrum",
-    "version": "1.0.0",
-    "description": "Save & Launch your Browser Tab Combinations in a blink.",
-    "permissions": ["tabs", "storage",  "<all_urls>"],
-
-    "browser_action": {
-      "default_popup": "popup.html",
-      "default_icon": {
-        "128": "tabtrum_128.png"
-        }
+  "manifest_version": 2,
+  "name": "TabTrum",
+  "version": "1.1.1",
+  "description": "Save & Launch your Browser Tab Combinations in a blink.",
+  "permissions": [
+    "tabs",
+    "storage",
+    "<all_urls>"
+  ],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "128": "tabtrum_128.png"
+    },
+    "icons": {
+      "16": "tabtrum_16.png",
+      "32": "tabtrum_32.png",
+      "48": "tabtrum_48.png",
+      "128": "tabtrum_128.png"
     }
   }
+}
