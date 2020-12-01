@@ -10,7 +10,7 @@ To contribute, please find the guidelines here - <a href='https://github.com/Gee
 
 ## Beta
 The Beta is now available via the release channel - <a href='https://bit.ly/tabtrumbeta'>bit.ly/tabtrumbeta</a>.<br/>
-If you want to play around with the actual Release, find it here - <a href='https://bit.ly/tabtrumbeta'>bit.ly/tabtrum</a>
+If you want to play around with the actual Release, find it here on the Chrome Web Store - <a href='https://bit.ly/tabtrum'>bit.ly/tabtrum</a>
 
 ## License
 The Extension is made under the purview of the <a href='https://choosealicense.com/licenses/mit/'>MIT License</a>. You are welcome to fork and make changes to TabTrum but do attribute 
