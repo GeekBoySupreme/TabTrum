@@ -375,6 +375,7 @@ button:active {
   position: relative;
   top: -5px;
   margin-bottom: 15px;
+  cursor: default;
 }
 
 .tablist_holder {
@@ -412,4 +413,27 @@ button:active {
 
 .tablist_tab_show a {
   text-decoration: none;
+}
+
+.launch_from_edit_page {
+  /* background-color: var(--color-button); */
+  font-size: 12px;
+  font-family: "Nunito", sans-serif;
+  letter-spacing: 0.2px;
+  padding: 4px 10px;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+
+  color: var(--color-text-dark);
+  background-color: var(--color-text);
+
+  position: fixed;
+  top: 91%;
+  left: 27%;
+  z-index: 10;
+}
+
+.launch_from_edit_page:hover {
+  color: var(--color-text);
+  background: var(--color-snap-button);
 }

@@ -22,7 +22,8 @@ document.addEventListener(
     else if (action == "launch") clickLaunch(snapshot_index);
     else if (action == "edit") clickEdit(snapshot_index);
     else if (action == "back") getBackHome();
-    else if (action == "tabedit") update_snapshot_name(event.target.id, snapshot_index);
+    else if (action == "tabedit")
+      update_snapshot_name(event.target.id, snapshot_index);
     else return;
   },
   false
@@ -215,9 +216,9 @@ function launchHelper(index) {
 function clickLaunch(snapshot_index) {
   var index = snapshot_index;
   try {
-    launchHelper(index)
+    launchHelper(index);
   } catch (e) {
-    launchHelper(index)
+    launchHelper(index);
   }
 }
 
@@ -262,28 +263,42 @@ function clickEdit(snapshot_edit) {
     var text = document.createTextNode("☑️  changes are saved automatically.");
     para.appendChild(text);
 
-
     var tabs_list_show = items.data[index].tablist;
     var tablistshowhtml = '<div class="tablist_holder">';
 
     for (var q = 0; q < tabs_list_show.length; q++) {
-      tablistshowhtml += '<div class="tablist_tab_show"> \
-        <a target="_blank" href="'+ tabs_list_show[q].url + '"> \
-        <img class="favicon_image" src="' + tabs_list_show[q].favIconUrl + '"/> \
-        <span class="tab_title">' + (tabs_list_show[q].title).substring(0, 30) + '..</span> \
+      tablistshowhtml +=
+        '<div class="tablist_tab_show"> \
+        <a target="_blank" href="' +
+        tabs_list_show[q].url +
+        '"> \
+        <img class="favicon_image" src="' +
+        tabs_list_show[q].favIconUrl +
+        '"/> \
+        <span class="tab_title">' +
+        tabs_list_show[q].title.substring(0, 30) +
+        "..</span> \
         </a> \
       \
-        </div > '
+        </div > ";
     }
 
-    tablistshowhtml += '</div>';
-
+    tablistshowhtml += "</div>";
 
     var back_button = document.createElement("button");
     back_button.setAttribute("class", "snapshot_edit name_edit");
     back_button.setAttribute("id", "snapshot_back_10");
     var text = document.createTextNode("back 😶");
     back_button.appendChild(text);
+
+    var launch_button = document.createElement("button");
+    launch_button.setAttribute(
+      "class",
+      "snapshot_launch launch_from_edit_page"
+    );
+    launch_button.setAttribute("id", "snapshot_launch_id_" + index);
+    text = document.createTextNode("Launch Tabs 🤠");
+    launch_button.appendChild(text);
 
     // back_button.onclick = function () {
     //   document.getElementById("snapshot_profile_edit").innerHTML = "";
@@ -293,9 +308,12 @@ function clickEdit(snapshot_edit) {
     // };
 
     document.getElementById("snapshot_profile_edit").appendChild(back_button);
+    document.getElementById("snapshot_profile_edit").appendChild(launch_button);
     document.getElementById("snapshot_profile_edit").appendChild(input_field);
     document.getElementById("snapshot_profile_edit").appendChild(para);
-    document.getElementById("snapshot_profile_edit").innerHTML += tablistshowhtml;
+    document.getElementById(
+      "snapshot_profile_edit"
+    ).innerHTML += tablistshowhtml;
   });
 }
 
@@ -358,7 +376,6 @@ function getaname(index) {
 
 loadData();
 var tracker = 0;
-
 
 function getBackHome() {
   document.getElementById("snapshot_profile_edit").innerHTML = "";
