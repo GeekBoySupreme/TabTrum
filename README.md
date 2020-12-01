@@ -9,7 +9,7 @@ TabTrum is a Browser Extension (Currently available for Chrome) to take a snapsh
 To contribute, please find the guidelines here - <a href='https://github.com/GeekBoySupreme/TabTrum/blob/master/Contributing.md'>Contributing Guidelines</a>
 
 ## Beta
-The Beta is now available via the release channel - <a href='https://bit.ly/tabtrumbeta'>bit.ly/tabtrumbeta</a>
+The Beta is now available via the release channel - <a href='https://bit.ly/tabtrumbeta'>bit.ly/tabtrumbeta</a>.<br/>
 If you want to play around with the actual Release, find it here - <a href='https://bit.ly/tabtrumbeta'>bit.ly/tabtrum</a>
 
 ## License
